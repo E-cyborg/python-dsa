@@ -21,8 +21,11 @@ class Tree:
             curr.right=self.create_tree_util(li,r)
         return curr
     
-    def print_inorder(self):
-        self.print_inorder_util(self.root)
+    def print_inorder(self,node=None):
+        if node:
+            self.print_inorder_util(node) 
+        else: 
+            self.print_inorder_util(self.root)
         print()
 
     def print_inorder_util(self,node):
@@ -106,7 +109,74 @@ class Tree:
         if self.search(node.right,value):
             return True
         return False
-l=[1,2,3,4,5,6,7]
+    
+    def find_maximux(self,node):
+        if node is None:
+            return float("-inf")
+        return max(node.data,self.find_maximux(node.left),self.find_maximux(node.right))
+    
+    def find_minimum(self,node):
+        if node is None:
+            return float('inf')
+        return min(node.data,self.find_minimum(node.left),self.find_minimum(node.right))
+
+    def LeafNode(self,node):
+
+        if node is None:
+            return 0
+        if node.right==None and node.left==None:
+            return 1
+        return self.LeafNode(node.left)+self.LeafNode(node.right)
+    def LeafNode_Data(self,node):
+        if node is None:
+            return 0
+        if node.right==None and node.left==None:
+            print(node.data)
+        return self.LeafNode_Data(node.left)+self.LeafNode_Data(node.right)
+
+    def path(self, node, current_path=""):
+        if node is None:
+            return
+        
+        current_path += str(node.data) + " -> "
+        
+        if node.left is None and node.right is None:
+            print(current_path[:-4])  
+
+        self.path(node.left, current_path)
+        self.path(node.right, current_path)
+
+    def check_trees(self,node1,node2):
+        if node1 is None and node2 is None:
+            return True
+        if node1 is None or node2 is None:
+            return False
+        return self.check_trees(node1.left,node2.left) == self.check_trees(node1.right,node2.right)  and node1.data == node2.data
+    # and node1.data == node2.data
+
+
+    def copy_tree(self):
+        return self.copy_tree_util(self.root)
+
+    def copy_tree_util(self, node):
+        if node is None:
+            return None
+        
+        # Create a new node with the same data
+        new_node = self.Node(node.data)
+        
+        # Recursively copy left and right subtrees
+        new_node.left = self.copy_tree_util(node.left)
+        new_node.right = self.copy_tree_util(node.right)
+        
+        return new_node
+
+
+
+
+
+
+l=[1,2,3,4,5,6,100]
 tr=Tree()
 tr.CreateTree(l)
 # tr.print_inorder()
@@ -116,8 +186,21 @@ tr.CreateTree(l)
 # print(tr.sumofnodes(tr.root))
 # print(tr.count_nodes(tr.root))
 # print(tr.height_of_tree(tr.root))
-print(tr.search(tr.root,0))
-
+# print(tr.search(tr.root,0))
+# print(tr.find_maximux(tr.root))
+# print(tr.find_minimum(tr.root))
+# print(tr.LeafNode(tr.root))
+# print(tr.LeafNode_Data(tr.root))
+# print(tr.path(tr.root))
 #  completely understand tree for list
 
-# exiting in 9:55 pm  8-3 25
+
+# l=[1,2,3,4,5,6,100]
+# t=Tree()
+# t.CreateTree(l)
+# print(tr.check_trees(tr.root,t.root))
+
+new_node = tr.copy_tree()
+print(tr.print_inorder(new_node))
+
+# 57 th video complete

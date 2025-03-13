@@ -8,8 +8,7 @@ def fun2(lst):
         sum +=i
     return sum/len(lst)
 
-def fun3(lst):
-    return 
+
 
 print('---| Finding the average of the given list |---')
 lst=[]

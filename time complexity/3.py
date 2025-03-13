@@ -15,5 +15,5 @@ print(f' {num} the number of instruction in O(logn)) is:' ,fun(num))
 #if num=100
 #then i=num
 # while i>0
-# it will divide the i by 2 
+# it will divide the i by 2     
 # and the c will increment

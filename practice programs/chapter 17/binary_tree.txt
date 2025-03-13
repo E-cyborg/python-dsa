@@ -1,0 +1,80 @@
+in this tree each node have almost two child 
+can have 0,1,2 and more then two
+which are reffered as left and right child
+in bt will have one data feild and two pointer field
+
+Binary tree reprsentation:
+-------------------------
+
+1) sequential using (list)
+2) linked list using (double ll)
+
+
+1 sequentional
+in this sequential represtaition if a node is present at the nth location
+parent -> n
+left child ->2n+1
+right child ->2n+2
+
+
+
+binary tree traversals: 
+222 
+traversing the tree is nothing but visiting/displaying each node present in the tree once. the following are the various methods existed for BT traversals. 
+Root ---> D 
+Left ---> L 
+Right --> R 
+1) Inorder Traversals ------> LDR ---> Left, Root, Right 
+2) Preorder Traversals -----> DLR --> Root, Left, Right 
+3) Postorder Traversals ----> LDR ---> Left, Right, Root
+
+Ex: 1
+tree
+      A
+    /   \
+   B     C
+Inorder---> BAC
+Preorder---> ABC
+Postorder---> BCA
+ Ex: 2
+ tree
+       A
+     /   \
+    B     C
+  /  \  
+ D   E  
+Inorder ---> DBEAC
+Preorder --> ABDEC
+Postorder -> DEBCA
+ Ex: 3
+ tree
+       A
+     /   \
+    B     C
+  /      / \ 
+ F      D   E
+Inorder ---> FBADCE
+Preorder --> ABFCDE
+Postorder -> FBDECA  
+ Ex: 4
+ tree
+       1
+     /   \
+    2     3
+  / \    / \ 
+ 4  5   6   7
+Inorder ---> 4251637
+Preorder --> 1245367
+Postorder -> 4526731  
+ Ex: 5
+ tree
+          1
+      /       \
+      2           3
+    /   \      /   \ 
+  4     5    6     7
+/ \   /  \  |  \   |   \
+8  9  10  11 12 13  14 15
+Inorder ---> 8 4 9 2 10 5 11 1 12 6 13 3 14 7 15
+Preorder --> 1 2 4 8  9 5 10 11 3 6 12 13 7 14 15
+Postorder -> 8 9 4 10 11 5 2 12 13 6 14 15 7 3 1  
